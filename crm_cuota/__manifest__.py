@@ -24,7 +24,9 @@
     # always loaded
     'data': [
         'views/crm_cuota_menu.xml',
+        'views/crm_cuota_report.xml',
         'views/crm_cuota.xml',
         'views/crm_lead.xml',
+        'views/get_crm_cuota_report.xml',
     ],
 }

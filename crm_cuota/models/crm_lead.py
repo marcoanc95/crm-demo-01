@@ -5,9 +5,9 @@ from datetime import date, datetime
 class CrmLead(models.Model):
     _inherit = 'crm.lead'
 
-    cuota = fields.Float('Couta', compute='_compute_cuota')
-    cuota_cubierta = fields.Float('Couta cubierta', compute='_compute_cuota')
-    cuota_restante = fields.Float('Couta restante', compute='_compute_cuota')
+    cuota = fields.Float('Cuota', compute='_compute_cuota')
+    cuota_cubierta = fields.Float('Cuota cubierta', compute='_compute_cuota')
+    cuota_restante = fields.Float('Cuota restante', compute='_compute_cuota')
 
     @api.depends('expected_revenue', 'stage_id')
     def _compute_cuota(self):
