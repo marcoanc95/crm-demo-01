@@ -29,3 +29,9 @@ class CrmLead(models.Model):
                 'cuota_cubierta': avance,
                 'cuota_restante': linea_cuota.cuota - avance,
             })
+        else:
+            self.update({
+                'cuota': 0,
+                'cuota_cubierta': 0,
+                'cuota_restante': 0,
+            })
