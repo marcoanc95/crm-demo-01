@@ -9,9 +9,8 @@ class CrmLead(models.Model):
     cuota_cubierta = fields.Float('Couta cubierta')
     cuota_restante = fields.Float('Couta restante')
 
-    def write(self, vals):
-        res = super(CrmLead, self).write(vals)
-
+     @api.onchange('expected_revenue', 'stage_id')
+    def _on_change_cuota(self):
         fechaActual = datetime.today().date()
         linea_cuota = self.sudo().env['crm.cuota'].search([('user_id', '=', self.user_id.id), ('team_id', '=', self.team_id.id), ('fecha_inicio', '<=', fechaActual), ('fecha_fin', '>=', fechaActual)])
         fechaInicio = linea_cuota[0].fecha_inicio
@@ -22,15 +21,8 @@ class CrmLead(models.Model):
         for op in op_ganadas:
             avance = avance + op.expected_revenue
 
-        self.cuota = linea_cuota.cuota
-        self.cuota_cubierta = avance
-        self.cuota_restante = linea_cuota.cuota - avance
-
-        return res
-
-
-
-
-
-
-   
+        self.update({
+            'cuota': linea_cuota.cuota,
+            'cuota_cubierta': avance,
+            'cuota_restante': linea_cuota.cuota - avance,
+        })
