@@ -11,10 +11,10 @@ class CrmLead(models.Model):
 
     @api.depends('expected_revenue', 'stage_id')
     def _compute_cuota(self):
-        fechaActual = datetime.today().date()
-        linea_cuota = self.sudo().env['crm.cuota'].search([('user_id', '=', self.user_id.id), ('team_id', '=', self.team_id.id), ('fecha_inicio', '<=', fechaActual), ('fecha_fin', '>=', fechaActual)])
-        
-        if linea_cuota:
+        if expected_revenue:
+            fechaActual = datetime.today().date()
+            linea_cuota = self.sudo().env['crm.cuota'].search([('user_id', '=', self.user_id.id), ('team_id', '=', self.team_id.id), ('fecha_inicio', '<=', fechaActual), ('fecha_fin', '>=', fechaActual)])
+            
             fechaInicio = linea_cuota[0].fecha_inicio
             fechaFin = linea_cuota[0].fecha_fin
             
