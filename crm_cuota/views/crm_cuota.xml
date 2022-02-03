@@ -8,6 +8,13 @@
       <form string="Couta">
           <sheet>
               <group>
+                <div class="oe_title">
+                  <h1>
+                    <field name="name" placeholder="Nombre"/>
+                  </h1>
+                </div>
+              </group>
+              <group>
                 <group>
                   <field name="user_id"/>
                   <field name="team_id"/>
@@ -34,6 +41,7 @@
     <field name="model">crm.cuota</field>
     <field name="arch" type="xml">
       <tree>
+        <field name="name"/>
         <field name="user_id"/>
         <field name="team_id"/>
         <field name="fecha_inicio"/>
