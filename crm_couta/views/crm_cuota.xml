@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="crm_couta_form" model="ir.ui.view"> 
+    <field name="name">crm.couta.form</field> 
+    <field name="model">crm.cuota</field>
+    <field name="arch" type="xml">
+      <form string="Couta">
+          <sheet>
+              <group>
+                <group>
+                  <field name="user_id"/>
+                  <field name="team_id"/>
+                </group>
+                <group>
+                  <field name="fecha_inicio"/>
+                  <field name="fecha_fin"/>
+                </group>
+              </group>
+
+
+              <group>
+                <group>
+                  <field name="cuota"/>
+                </group>
+              </group>
+          </sheet>
+      </form>
+    </field> 
+  </record>
+
+  <record id="crm_couta_tree" model="ir.ui.view">
+    <field name="name">crm.couta.tree</field> 
+    <field name="model">crm.couta</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="user_id"/>
+        <field name="team_id"/>
+        <field name="fecha_inicio"/>
+        <field name="fecha_fin"/>
+        <field name="cuota"/>¿
+      </tree>
+    </field> 
+  </record>
+
+</odoo>
