@@ -14,7 +14,7 @@ class CrmLead(models.Model):
     def _on_change_cuota(self):
         for reg in self:
             fechaActual = datetime.today().date()
-            linea_cuota = reg.sudo().env['crm.cuota'].search([('user_id', '=', reg.user_id), ('team_id', '=', reg.team_id), ('fecha_inicio', '<=', fechaActual), ('fecha_fin', '>=', fechaActual)])
+            linea_cuota = reg.sudo().env['crm.cuota'].search([('user_id', '=', reg.user_id.id), ('team_id', '=', reg.team_id.id), ('fecha_inicio', '<=', fechaActual), ('fecha_fin', '>=', fechaActual)])
 
             reg.update({
                     'cuota': linea_cuota.cuota,
