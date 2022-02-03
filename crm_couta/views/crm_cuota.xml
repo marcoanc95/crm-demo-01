@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-  <record id="crm_couta_form" model="ir.ui.view"> 
-    <field name="name">crm.couta.form</field> 
+  <record id="crm_cuota_form" model="ir.ui.view"> 
+    <field name="name">crm.cuota.form</field> 
     <field name="model">crm.cuota</field>
     <field name="arch" type="xml">
       <form string="Couta">
@@ -29,16 +29,16 @@
     </field> 
   </record>
 
-  <record id="crm_couta_tree" model="ir.ui.view">
-    <field name="name">crm.couta.tree</field> 
-    <field name="model">crm.couta</field>
+  <record id="crm_cuota_tree" model="ir.ui.view">
+    <field name="name">crm.cuota.tree</field> 
+    <field name="model">crm.cuota</field>
     <field name="arch" type="xml">
       <tree>
         <field name="user_id"/>
         <field name="team_id"/>
         <field name="fecha_inicio"/>
         <field name="fecha_fin"/>
-        <field name="cuota"/>¿
+        <field name="cuota"/>
       </tree>
     </field> 
   </record>
