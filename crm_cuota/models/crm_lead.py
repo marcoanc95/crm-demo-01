@@ -18,14 +18,13 @@ class CrmLead(models.Model):
         fechaFin = linea_cuota[0].fecha_fin
         op_ganadas = self.sudo().env['crm.lead'].search([('user_id', '=', self.user_id.id), ('team_id', '=', self.team_id.id), ('won_status', '=', 'won'), ('date_closed', '>=', fechaInicio), ('date_closed', '<=', fechaFin)])
         avance = 0
+
         for op in op_ganadas:
             avance = avance + op.expected_revenue
 
-        self.update({
-                'cuota': linea_cuota.cuota,
-                'cuota_cubierta': avance,
-                'cuota_restante': linea_cuota.cuota - avance,
-            })
+        self.cuota = linea_cuota.cuota
+        self.cuota_cubierta = avance
+        self.cuota_restante = linea_cuota.cuota - avance
 
         return res
 
