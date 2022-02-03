@@ -9,7 +9,7 @@ class CrmLead(models.Model):
     cuota_cubierta = fields.Float('Couta cubierta')
     cuota_restante = fields.Float('Couta restante')
 
-     @api.onchange('expected_revenue', 'stage_id')
+    @api.onchange('expected_revenue', 'stage_id')
     def _on_change_cuota(self):
         fechaActual = datetime.today().date()
         linea_cuota = self.sudo().env['crm.cuota'].search([('user_id', '=', self.user_id.id), ('team_id', '=', self.team_id.id), ('fecha_inicio', '<=', fechaActual), ('fecha_fin', '>=', fechaActual)])
