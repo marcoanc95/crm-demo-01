@@ -25,5 +25,6 @@
     'data': [
         'views/crm_cuota_menu.xml',
         'views/crm_cuota.xml',
+        'views/crm_lead.xml',
     ],
 }

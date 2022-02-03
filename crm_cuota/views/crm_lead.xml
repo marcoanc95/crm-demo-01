@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="crm_lead_inherit_crm_cuota" model="ir.ui.view">
+    <field name="name">crm.lead.inherit.crm.cuota</field>
+    <field name="model">crm.lead</field>
+    <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+    <field name="arch" type="xml">
+
+        <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+          <page string="Cuota">
+            <group>
+              <group>
+                <field name="cuota"/>
+                <field name="cuota_cubierta"/>
+                <field name="cuota_restante"/>
+              </group>
+            </group>
+          </page>
+        </xpath>
+
+    </field>
+  </record>
+
+</odoo>
